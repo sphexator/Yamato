@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Yamato.Handler
 {
-    public class CommandHandler
+    public abstract class CommandHandler
     {
         private readonly CommandService _commands;
         private readonly DiscordSocketClient _client;
@@ -17,7 +17,7 @@ namespace Yamato.Handler
         private ConcurrentDictionary<ulong, string> Prefix { get; }
             = new ConcurrentDictionary<ulong, string>();
 
-        public CommandHandler(IServiceProvider provider, DiscordSocketClient client, CommandService commands)
+        protected CommandHandler(IServiceProvider provider, DiscordSocketClient client, CommandService commands)
         {
             _client = client;
             _commands = commands;
