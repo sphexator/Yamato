@@ -30,8 +30,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Modules\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Modules\Administrative\" />
+    <Folder Include="Modules\Mvp\" />
+    <Folder Include="Modules\HungerGame\" />
+    <Folder Include="Modules\Music\" />
+    <Folder Include="Modules\Owner\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
