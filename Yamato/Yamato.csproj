@@ -30,9 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Module\" />
+    <Folder Include="Modules\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Service\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

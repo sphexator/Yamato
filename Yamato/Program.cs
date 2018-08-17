@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SharpLink;
 using Yamato.Handler;
+using Yamato.Logging;
 
 namespace Yamato
 {
@@ -38,6 +39,7 @@ namespace Yamato
 
             var services = ConfigureServices();
 
+            services.GetRequiredService<LogService>();
             await services.GetRequiredService<CommandHandler>().InitializeAsync(services);
 
             await _client.LoginAsync(TokenType.Bot, _config["token"]);
@@ -56,6 +58,7 @@ namespace Yamato
             services.AddSingleton<CommandService>();
             services.AddSingleton<CommandHandler>();
             services.AddSingleton<Lavalink>();
+            services.AddSingleton<LogService>();
 
             services.AddLogging();
             return services.BuildServiceProvider();

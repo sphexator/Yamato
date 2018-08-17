@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Yamato.Logging
 {
-    public class Logging
+    public class LogService
     {
         private readonly DiscordSocketClient _client;
         private readonly CommandService _commands;
@@ -15,7 +15,7 @@ namespace Yamato.Logging
         private readonly ILogger _discordLogger;
         private readonly ILoggerFactory _loggerFactory;
 
-        public Logging(DiscordSocketClient client, CommandService commands, ILoggerFactory loggerFactory)
+        public LogService(DiscordSocketClient client, CommandService commands, ILoggerFactory loggerFactory)
         {
             _client = client;
             _commands = commands;
