@@ -1,18 +1,18 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
-using System;
-using System.Linq;
 
 namespace Yamato.Utilities
 {
-    public class QuartzJonFactory : IJobFactory
+    public abstract class QuartzJonFactory : IJobFactory
     {
         private readonly IServiceProvider _services;
 
-        public QuartzJonFactory(IServiceProvider services)
+        protected QuartzJonFactory(IServiceProvider services)
         {
             _services = services;
         }
@@ -21,10 +21,13 @@ namespace Yamato.Utilities
         {
             var jobDetail = bundle.JobDetail;
 
-            var job = (IJob)_services.GetService(jobDetail.JobType);
+            var job = (IJob) _services.GetService(jobDetail.JobType);
             return job;
         }
-        public void ReturnJob(IJob job) { }
+
+        public void ReturnJob(IJob job)
+        {
+        }
     }
 
     public static class UsingQuartz
